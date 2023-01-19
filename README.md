@@ -1,6 +1,11 @@
 # Interview Scheduler
 Scheduler was an intense leap into the world of React. With huge library access and usage of vital concepts such as useState and useEffect along with new testing flow, feel and visuals with Jest and Cypress. This app allows for students to book an interview with a mentor of their choice. Interviews can be added, deleted or changed to swap the chosen mentor, or to fix any potential name mistakes.
 
+## Screenshots
+
+!["Add new appointment"](https://github.com/Kashus24/scheduler/blob/master/docs/add-appointment.png?raw=true)
+
+
 ## Setup
 
 Install dependencies with `npm install`.
