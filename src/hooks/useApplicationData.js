@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Appointment from "components/Appointment";
-import { getAppointmentsForDay, getInterviewersForDay } from "helpers/selectors";
+import { useState, useEffect } from "react";
 import axios from "axios";
-
 
 const useApplicationData = () => {
 
@@ -13,21 +10,21 @@ const useApplicationData = () => {
     interviewers: {}
   });
 
+  // spots remaining updater function
+  const changedSpots = function (state, appointments) {
 
-  // const changedSpots = function (state, appointments) {
+    const newSpots = state.days.map(slot => {
+      if (slot.name === state.day) {
+        return {
+          ...slot,
+          spots: slot.appointments.map(appt => appointments[appt]).filter(({ interview }) => !interview).length
+        }
+      }
+      return slot;
 
-  //   const newSpots = state.days.map(slot => {
-  //     if (slot.name === state.day) {
-  //       return {
-  //         ...slot,
-  //         spots: slot.appointments.map(appt => appointments[appt]).filter(({ interview }) => !interview).length
-  //       }
-  //     }
-  //     return slot;
-
-  //   });
-  //   return newSpots;
-  // };
+    });
+    return newSpots;
+  };
 
 
 
@@ -43,13 +40,13 @@ const useApplicationData = () => {
     };
 
     return axios.put(`/api/appointments/${id}`, { interview })
-      .then(
+      .then(() => {
         setState({
           ...state,
           appointments,
-          // days: changedSpots(state, appointments)
+          days: changedSpots(state, appointments)
         })
-      );
+      });
   }
 
 
@@ -68,7 +65,7 @@ const useApplicationData = () => {
         setState({
           ...state,
           appointments,
-          // days: changedSpots(state, appointments)
+          days: changedSpots(state, appointments)
         });
       });
   };
