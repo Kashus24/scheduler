@@ -3,7 +3,11 @@ Scheduler was an intense leap into the world of React. With huge library access 
 
 ## Screenshots
 
+!["Fully booked day of appointments"](https://github.com/Kashus24/scheduler/blob/master/docs/fully-booked-day.png?raw=true)
+
 !["Add new appointment"](https://github.com/Kashus24/scheduler/blob/master/docs/add-appointment.png?raw=true)
+
+!["Delete appointment confirmation or cancel"](https://github.com/Kashus24/scheduler/blob/master/docs/appointment-delete-or-cancel-delete.png?raw=true)
 
 
 ## Setup
